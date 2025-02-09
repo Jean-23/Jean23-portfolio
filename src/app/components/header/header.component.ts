@@ -8,25 +8,21 @@ import {HeaderDetailsComponent} from './header-details/header-details.component'
   selector: 'jjn-header',
   imports: [
     NavbarComponent,
-    NgOptimizedImage,
     HeaderDetailsComponent
   ],
-  templateUrl: './header.component.html',
   standalone: true,
-  styleUrl: './header.component.scss'
+  template:`
+    <div class="container">
+
+    <!--Navigation part-->
+    <jjn-navbar />
+
+    <!--Presentation part-->
+    <jjn-header-details />
+    </div>
+
+  `
 })
 export class HeaderComponent {
-  toastService = inject(ToastService);
-  myEmail:string = "jjn99@outlook.fr"
 
-  copyEmailAddress() {
-    navigator.clipboard.writeText(this.myEmail)
-      .then(() => {
-        this.toastService.showToast('📋 Email copié avec succès !', 'success');
-      })
-      .catch(err => {
-        this.toastService.showToast('❌ Échec de la copie !', 'error');
-        console.error('Could not copy email address: ', err);
-      });
-  }
 }
