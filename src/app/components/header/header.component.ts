@@ -1,9 +1,16 @@
 import {Component, inject} from '@angular/core';
 import {ToastService} from '../../service/toast.service';
+import {NavbarComponent} from './navbar/navbar.component';
+import {NgOptimizedImage} from '@angular/common';
+import {HeaderDetailsComponent} from './header-details/header-details.component';
 
 @Component({
   selector: 'jjn-header',
-  imports: [],
+  imports: [
+    NavbarComponent,
+    NgOptimizedImage,
+    HeaderDetailsComponent
+  ],
   templateUrl: './header.component.html',
   standalone: true,
   styleUrl: './header.component.scss'
